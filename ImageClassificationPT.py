@@ -95,7 +95,6 @@ class ImageClassificationPT:
                                          nn.Dropout(0.2),
                                          nn.Linear(512, 2),
                                          nn.LogSoftmax(dim=1))
-            # optimizer = optim.Adam(basemodel.fc.parameters(), lr=0.003)
         # Densenet
         else:
             basemodel.classifier = nn.Sequential(nn.Linear(2208, 512),
@@ -104,7 +103,6 @@ class ImageClassificationPT:
                                                  nn.Linear(512, 2),
                                                  nn.LogSoftmax(dim=1))
 
-            # optimizer = optim.Adam(basemodel.classifier.parameters(), lr=0.003)
         criterion = nn.NLLLoss()
         print(basemodel.to(device))
         # LR finder
